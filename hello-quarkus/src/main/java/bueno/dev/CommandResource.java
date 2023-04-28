@@ -22,7 +22,7 @@ public class CommandResource {
     @Produces(MediaType.TEXT_PLAIN)
     public Response commandExecutor(@javax.ws.rs.PathParam("command") String command) {
         logger.info("Command received: " + command + " to execute");
-        commandProducer.toExecute(Message.of(command));
+        commandProducer.toExecute(command);
         return Response.ok().build();
     }
 

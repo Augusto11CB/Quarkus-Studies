@@ -1,0 +1,73 @@
+# When [??].kafka.bootstrap.servers not provided this property defaults to localhost:9092.
+
+#mp.messaging.incoming.words-in.topic=words
+#mp.messaging.outgoing.words-out.topic=words
+#mp.messaging.incoming.words-in.auto.offset.reset=earliest
+
+
+# Dev Services (creates a topics in kafka using test-container) for Kafka is automatically enabled unless:
+quarkus.kafka.devservices.enabled=false
+kafka.bootstrap.servers=localhost:9092
+kafka.schema.registry.url=http://localhost:8081
+%local.kafka.bootstrap.servers=localhost:9092
+%local.kafka.schema.registry.url=http://localhost:8081
+%local.quarkus.confluent.registry.avro.url=http://localhost:8081
+%local.quarkus.kafka.devservices.enabled=false
+
+# [Local] Consumer (Command Topic)
+#mp.messaging.incoming.command-in.connector=smallrye-kafka
+#mp.messaging.incoming.command-in.topic=command-local-2
+#mp.messaging.incoming.command-in.value.deserializer=io.apicurio.registry.utils.serde.AvroKafkaDeserializer
+#mp.messaging.incoming.command-in.auto.offset.reset=earliest
+#mp.messaging.incoming.command-in.enable.auto.commit=false
+#mp.messaging.incoming.command-in.apicurio.registry.avro-datum-provider=io.apicurio.registry.utils.serde.avro.ReflectAvroDatumProvider
+
+###### ###### ###### ######
+#%local.mp.messaging.incoming.command-in.schema.registry=http://localhost:8081
+#%local.mp.messaging.incoming.command-in.value.schema.registry.url=http://localhost:8081
+#%local.mp.messaging.incoming.command-in.value.key.registry.url=http://localhost:8081
+#%local.mp.messaging.incoming.command-in.value.converter.schema.registry.url=http://localhost:8081
+#%local.mp.messaging.incoming.command-in.key.converter.schema.registry.url=http://localhost:8081
+%local.mp.messaging.incoming.command-in.connector=smallrye-kafka
+%local.mp.messaging.incoming.command-in.auto.offset.reset=earliest
+%local.mp.messaging.incoming.command-in.topic=command-local
+%local.mp.messaging.incoming.command-in.partitions=1
+%local.mp.messaging.incoming.command-in.group.id=command_reader
+%local.mp.messaging.incoming.command-in.key.deserializer=org.apache.kafka.common.serialization.StringDeserializer
+%local.mp.messaging.incoming.command-in.value.deserializer=io.confluent.kafka.serializers.KafkaAvroDeserializer
+#%local.mp.messaging.incoming.command-in.key.converter=io.confluent.connect.avro.AvroConverter
+#%local.mp.messaging.incoming.command-in.value.converter=io.confluent.connect.avro.AvroConverter
+#%local.mp.messaging.incoming.command-in.key.deserializer.specific.avro.reader=true
+#%local.mp.messaging.incoming.command-in.value.deserializer.specific.avro.reader=true
+
+
+# [Local] Producer (Command Topic)
+#mp.messaging.outgoing.command.connector=smallrye-kafka
+#mp.messaging.outgoing.command.topic=command-local-2
+#mp.messaging.outgoing.command.value.serializer=io.apicurio.registry.utils.serde.AvroKafkaSerializer
+#mp.messaging.outgoing.command.apicurio.registry.artifact-id=io.apicurio.registry.utils.serde.strategy.SimpleTopicIdStrategy
+#mp.messaging.outgoing.command.apicurio.registry.global-id=io.apicurio.registry.utils.serde.strategy.GetOrCreateIdStrategy
+#mp.messaging.outgoing.command.apicurio.registry.avro-datum-provider=io.apicurio.registry.utils.serde.avro.ReflectAvroDatumProvider
+
+
+##### ##### ##### ##### ###### ##### ##### ###### #
+#%local.mp.messaging.outgoing.command.value.schema.registry.url=http://localhost:8081
+#%local.mp.messaging.outgoing.command.key.schema.registry.url=http://localhost:8081
+#%local.mp.messaging.outgoing.command.schema.registry.url=http://localhost:8081
+#%local.mp.messaging.outgoing.command.value.converter.schema.registry.url=http://localhost:8081
+#%local.mp.messaging.outgoing.command.key.converter.schema.registry.url=http://localhost:8081
+%local.mp.messaging.outgoing.command.connector=smallrye-kafka
+%local.mp.messaging.outgoing.command.topic=command-local
+%local.mp.messaging.outgoing.command.failure-strategy=ignore
+%local.mp.messaging.outgoing.command.key.serializer=org.apache.kafka.common.serialization.StringSerializer
+%local.mp.messaging.outgoing.command.value.serializer=io.confluent.kafka.serializers.KafkaAvroSerializer
+
+
+
+
+#%local.mp.messaging.connector.smallrye-kafka.apicurio.registry.url=http://localhost:8081/api
+#mp.messaging.connector.smallrye-kafka.apicurio.registry.url=http://localhost:8081
+#quarkus.apicurio-registry.avro.enabled=true
+#quarkus.apicurio-registry.avro.url=http://localhost:8081/api
+#quarkus.apicurio-registry.avro.auto-register=true
+#quarkus.apicurio-registry.avro.auto-update=true

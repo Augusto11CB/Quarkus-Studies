@@ -1,10 +1,9 @@
 package bueno.dev;
 
+import bueno.dev.events.CommandEvent;
 import com.oracle.svm.core.annotate.Inject;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
-import org.eclipse.microprofile.reactive.messaging.Message;
-import org.eclipse.microprofile.reactive.messaging.Outgoing;
 
 import javax.enterprise.context.ApplicationScoped;
 
@@ -12,8 +11,8 @@ import javax.enterprise.context.ApplicationScoped;
 public class CommandProducer {
     @Inject
     @Channel("command")
-    Emitter<String> commandEmitter;
-    public void toExecute(Message<String> message) {
-        commandEmitter.send(message.getPayload().toUpperCase());
+    Emitter<CommandEvent> commandEmitter;
+    public void toExecute(String message) {
+        commandEmitter.send(CommandEvent.newBuilder().setCOMMAND(message).build());
     }
 }
