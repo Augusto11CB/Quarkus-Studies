@@ -20,7 +20,7 @@ public class EventResource {
     @Path("/{event}")
     @Produces(MediaType.TEXT_PLAIN)
     public Response commandExecutor(@javax.ws.rs.PathParam("event") String event) {
-        logger.info("Command received: " + event + " to execute");
+        logger.info("Event received: " + event);
         eventProducer.toExecute(event);
         return Response.ok().build();
     }
