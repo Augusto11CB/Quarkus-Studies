@@ -1,11 +1,11 @@
 package bueno.dev;
 
+import io.quarkus.arc.profile.IfBuildProfile;
 import io.smallrye.common.annotation.Identifier;
 import org.eclipse.microprofile.config.Config;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.ws.rs.Produces;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,8 +17,9 @@ public class KafkaSslConfig {
     @Inject
     Config config;
 /*
-* https://smallrye.io/smallrye-reactive-messaging/4.5.0/kafka/default-configuration/
+* Doc: https://smallrye.io/smallrye-reactive-messaging/4.5.0/kafka/default-configuration/
 * */
+    @IfBuildProfile("dev")
     @ApplicationScoped
     @Produces
     @Identifier("my-configuration2-aug")
