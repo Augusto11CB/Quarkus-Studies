@@ -36,7 +36,6 @@ dependencies {
         exclude("jakarta.ws.rs", "jakarta.ws.rs-api")
     }
 
-//    implementation("br.com.pagseguro.openbanking:events:9.9.99.local")
 
 //    implementation("io.apicurio:apicurio-registry-serdes-avro-serde:2.4.2.Final")
 //    implementation("io.quarkus:quarkus-apicurio-registry-avro:3.0.1.Final")
