@@ -1,0 +1,27 @@
+{
+  "type": "record",
+  "name": "PromotionEvent",
+  "namespace": "bueno.dev.events.v2",
+  "doc": "Eventos de Promoção",
+  "version": 1,
+  "fields": [
+    {
+      "name": "PROMOTION_CODE",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null,
+      "doc": "[NOT_SECURITY_APPLY] PROMOTION"
+    },
+        {
+      "name": "PROMOTION_NUMBER",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null,
+      "doc": "[NOT_SECURITY_APPLY] PROMOTION"
+    }
+  ]
+}

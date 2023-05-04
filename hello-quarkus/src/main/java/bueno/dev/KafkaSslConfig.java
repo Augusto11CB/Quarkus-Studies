@@ -22,8 +22,7 @@ public class KafkaSslConfig {
     @IfBuildProfile("dev")
     @ApplicationScoped
     @Produces
-    @Identifier("my-configuration2-aug")
-    //@Identifier("default-kafka-broker")
+    @Identifier("my-configuration-aug")
     public Map<String, Object> createKafkaRuntimeConfig() {
         Map<String, Object> properties = new HashMap<>();
 
@@ -44,7 +43,7 @@ public class KafkaSslConfig {
 
 //        properties.put("mp.messaging.outgoing.event-out.security.protocol", "SSL");
 //        properties.put("mp.messaging.outgoing.event-out.schema.registry.url", "http://localhost:8081");
-//        properties.put("mp.messaging.outgoing.event-out.ssl.truststore.location", "/home/acalado/workspace/open-banking-demo/kafka-ssl-acl/kafka-config/kafka_2.13-3.0.0/ssl/local-app.truststore.jks");
+//        properties.put("mp.messaging.outgoing.event-out.ssl.truststore.location", "/tmp/ssl/local-app.truststore.jks");
 //        properties.put("mp.messaging.outgoing.event-out.ssl.truststore.password", "changeit");
 //        properties.put("mp.messaging.outgoing.event-out.ssl.truststore.type", "JKS");
 //        properties.put("mp.messaging.outgoing.event-out.ssl.keystore.location", "/home/acalado/local-app.keystore.jks");
@@ -58,7 +57,7 @@ public class KafkaSslConfig {
 //        properties.replace("security.protocol", "SSL");
 
         properties.put("security.protocol", "SSL");
-        properties.put("ssl.truststore.location", "/home/acalado/workspace/open-banking-demo/kafka-ssl-acl/kafka-config/kafka_2.13-3.0.0/ssl/local-app.truststore.jks");
+        properties.put("ssl.truststore.location", "/tmp/ssl/local-app.truststore.jks");
         properties.put("ssl.truststore.password", "changeit");
         properties.put("ssl.truststore.type", "JKS");
         properties.put("ssl.keystore.location", "/home/acalado/local-app.keystore.jks");

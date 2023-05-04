@@ -1,9 +1,9 @@
 {
   "type": "record",
   "name": "CommandEvent",
-  "namespace": "bueno.dev.events",
+  "namespace": "bueno.dev.events.v2",
   "doc": "Eventos de Comando",
-  "version": 1,
+  "version": 2,
   "fields": [
     {
       "name": "COMMAND",
