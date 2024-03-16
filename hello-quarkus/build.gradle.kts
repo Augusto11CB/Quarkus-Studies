@@ -30,7 +30,7 @@ dependencies {
 
     implementation("io.quarkus:quarkus-smallrye-reactive-messaging-kafka:2.7.5.Final")
     implementation("io.quarkus:quarkus-kafka-client:2.7.5.Final")
-    implementation("io.quarkus:quarkus-apicurio-registry-avro:2.7.5.Final")
+//    implementation("io.quarkus:quarkus-apicurio-registry-avro:2.7.5.Final")
 //    implementation("io.quarkus:quarkus-confluent-registry-avro")
 //    implementation("io.confluent:kafka-schema-registry-client:6.2.1")
     implementation("io.confluent:kafka-avro-serializer:6.2.1") {
